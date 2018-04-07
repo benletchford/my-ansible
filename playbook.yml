@@ -26,6 +26,7 @@
           - konsole
           - yakuake
           - python3-pip
+          - npm
 
   - name: Install my favourite atom packages
     shell: apm install {{ item }}
@@ -35,3 +36,10 @@
       - markdown-preview-enhanced
       - atom-beautify
       - atom-math
+
+  - name: Install my favourite npm packages (globally)
+    npm:
+      name: "{{ item }}"
+      global: yes
+    with_items:
+      - bower
