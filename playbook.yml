@@ -1,0 +1,36 @@
+---
+- hosts: localhost
+
+  tasks:
+  - name: Do sudo tasks
+    become: true
+    become_method: sudo
+    become_user: root
+    block:
+      - name: Add my favourite repositories
+        apt_repository:
+          repo: "{{ item }}"
+          state: present
+        with_items:
+          - ppa:webupd8team/atom
+
+      - name: Install my favourite packages
+        apt:
+          name: "{{ item }}"
+          update_cache: yes
+          state: latest
+        with_items:
+          - atom
+          - htop
+          - vim
+          - konsole
+          - yakuake
+
+  - name: Install my favourite atom packages
+    shell: apm install {{ item }}
+    args:
+      creates: /home/{{ lookup('env','USER') }}/.atom/packages/{{ item }}
+    with_items:
+      - markdown-preview-enhanced
+      - atom-beautify
+      - atom-math
