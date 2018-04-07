@@ -6,7 +6,7 @@ Ansible playbook to help automate the setup and configuration of my machines (*c
 
 ## ansible-playbook
 ```
-$ ansible-playbook -i "localhost," -c local playbook.yml
+$ sudo ansible-playbook -i "localhost," -c local playbook.yml
 ```
 
 ## ansible-pull

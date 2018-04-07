@@ -25,11 +25,12 @@
           - vim
           - konsole
           - yakuake
+          - python3-pip
 
   - name: Install my favourite atom packages
     shell: apm install {{ item }}
     args:
-      creates: /home/{{ lookup('env','USER') }}/.atom/packages/{{ item }}
+      creates: /home/{{ lookup('env','SUDO_USER') }}/.atom/packages/{{ item }}
     with_items:
       - markdown-preview-enhanced
       - atom-beautify
