@@ -13,6 +13,7 @@
           state: present
         with_items:
           - ppa:webupd8team/atom
+          - ppa:pypa/ppa
 
       - name: Install my favourite packages
         apt:
@@ -27,6 +28,11 @@
           - yakuake
           - python3-pip
           - npm
+          
+          # Pipenv dependencies
+          - software-properties-common
+          - python-software-properties
+          - pipenv
 
   - name: Install my favourite atom packages
     shell: apm install {{ item }}
