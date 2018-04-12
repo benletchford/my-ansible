@@ -1,0 +1,26 @@
+---
+my_apt_repositories:
+  - ppa:webupd8team/atom
+  - ppa:pypa/ppa
+
+my_apt_packages:
+  - atom
+  - htop
+  - vim
+  - konsole
+  - yakuake
+  - python3-pip
+  - npm
+
+  # Pipenv dependencies
+  - software-properties-common
+  - python-software-properties
+  - pipenv
+
+my_atom_packages:
+  - markdown-preview-enhanced
+  - atom-beautify
+  - atom-math
+
+my_global_npm_packages:
+  - bower
