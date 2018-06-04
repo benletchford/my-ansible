@@ -1,6 +1,9 @@
 ---
 - hosts: localhost
 
+  vars_files:
+    - my_vars.yml
+
   tasks:
   - name: Do sudo tasks
     become: true
@@ -12,32 +15,16 @@
           name: "{{ item }}"
           update_cache: yes
           state: latest
-        with_items:
-          - atom
-          - htop
-          - vim
-          - konsole
-          - yakuake
-          - python3-pip
-          - npm
-          
-          # Pipenv dependencies
-          - software-properties-common
-          - python-software-properties
-          - pipenv
+        with_items: "{{ my_apt_packages }}"
 
   - name: Install my favourite atom packages
     shell: apm install {{ item }}
     args:
       creates: /home/{{ lookup('env','SUDO_USER') }}/.atom/packages/{{ item }}
-    with_items:
-      - markdown-preview-enhanced
-      - atom-beautify
-      - atom-math
+    with_items: "{{ my_atom_packages }}"
 
   - name: Install my favourite npm packages (globally)
     npm:
       name: "{{ item }}"
       global: yes
-    with_items:
-      - bower
+    with_items: "{{ my_global_npm_packages }}"
