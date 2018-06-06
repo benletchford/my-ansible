@@ -5,7 +5,7 @@
     - my_vars.yml
 
   tasks:
-  - name: Do sudo tasks
+  - name: Do my sudo tasks
     become: true
     become_method: sudo
     become_user: root
@@ -16,7 +16,13 @@
           update_cache: yes
           state: latest
         with_items: "{{ my_apt_packages }}"
-
+        
+      - name: Install my favourite classic snap packages
+        shell: snap install {{ item }} --classic
+        args:
+          creates: /var/lib/snapd/snaps/{{ item }}*.snap
+        with_items: "{{ my_classic_snap_packages }}"
+        
   - name: Install my favourite atom packages
     shell: apm install {{ item }}
     args:
@@ -28,3 +34,21 @@
       name: "{{ item }}"
       global: yes
     with_items: "{{ my_global_npm_packages }}"
+
+  - name: Setup my git configuration
+    git_config:
+      name: "{{ item.name }}"
+      scope: global
+      value: "{{ item.value }}"
+    with_items:
+      - name: credential.helper
+        value: cache --timeout=36000
+      - name: core.editor
+        value: vim
+      - name: user.name
+        value: "{{ my_name }}"
+      - name: user.email
+        value: "{{ my_email }}"
+      - name: merge.tool
+        value: "vimdiff"
+      - name: merge.conflictstyle
