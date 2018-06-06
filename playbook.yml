@@ -16,13 +16,13 @@
           update_cache: yes
           state: latest
         with_items: "{{ my_apt_packages }}"
-        
+
       - name: Install my favourite classic snap packages
         shell: snap install {{ item }} --classic
         args:
           creates: /var/lib/snapd/snaps/{{ item }}*.snap
         with_items: "{{ my_classic_snap_packages }}"
-        
+
   - name: Install my favourite atom packages
     shell: apm install {{ item }}
     args:

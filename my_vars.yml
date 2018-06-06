@@ -26,7 +26,7 @@ my_atom_packages:
 
 my_global_npm_packages:
   - bower
-  
+
 my_classic_snap_packages:
   - atom
 
@@ -41,4 +41,3 @@ my_git_configuration:
     value: "{{ my_email }}"
   - name: merge.tool
     value: "vimdiff"
-  - name: merge.conflictstyle
