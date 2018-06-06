@@ -29,3 +29,16 @@ my_global_npm_packages:
   
 my_classic_snap_packages:
   - atom
+
+my_git_configuration:
+  - name: credential.helper
+    value: cache --timeout=36000
+  - name: core.editor
+    value: vim
+  - name: user.name
+    value: "{{ my_name }}"
+  - name: user.email
+    value: "{{ my_email }}"
+  - name: merge.tool
+    value: "vimdiff"
+  - name: merge.conflictstyle
