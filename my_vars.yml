@@ -1,4 +1,7 @@
 ---
+my_name: "Ben Letchford"
+my_email: "contact@benl.com.au"
+
 my_apt_packages:
   - atom
   - htop
@@ -15,6 +18,14 @@ my_atom_packages:
   - markdown-preview-enhanced
   - atom-beautify
   - atom-math
+  - linter
+  - linter-ui-default
+  - intentions
+  - busy-signal
+  - prettier-atom
 
 my_global_npm_packages:
   - bower
+  
+my_classic_snap_packages:
+  - atom
