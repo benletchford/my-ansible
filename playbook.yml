@@ -23,6 +23,12 @@
           creates: /var/lib/snapd/snaps/{{ item }}*.snap
         with_items: "{{ my_classic_snap_packages }}"
 
+  - name: Install my favourite python packages (via pip)
+    pip:
+      name: "{{ item }}"
+      extra_args: --user
+    with_items: "{{ my_python_packages }}"
+
   - name: Install my favourite atom packages
     shell: apm install {{ item }}
     args:

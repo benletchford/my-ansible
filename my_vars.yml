@@ -13,6 +13,12 @@ my_apt_packages:
   # Pipenv dependencies
   - software-properties-common
 
+my_classic_snap_packages:
+  - atom
+
+my_python_packages:
+  - pipenv
+
 my_atom_packages:
   - markdown-preview-enhanced
   - atom-beautify
@@ -25,9 +31,6 @@ my_atom_packages:
 
 my_global_npm_packages:
   - bower
-
-my_classic_snap_packages:
-  - atom
 
 my_git_configuration:
   - name: credential.helper
