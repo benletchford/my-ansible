@@ -4,6 +4,12 @@ Ansible playbook to help automate the setup and configuration of my machines (*c
 
 # Usage
 
+## Get going Fast
+
+```
+$ wget -O - https://raw.githubusercontent.com/benletchford/my-ansible/master/get-going-fast.sh | sudo bash
+```
+
 ## ansible-playbook
 ```
 $ sudo ansible-playbook -i "localhost," -c local playbook.yml
