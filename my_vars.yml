@@ -3,7 +3,6 @@ my_name: "Ben Letchford"
 my_email: "contact@benl.com.au"
 
 my_apt_packages:
-  - atom
   - htop
   - vim
   - konsole
