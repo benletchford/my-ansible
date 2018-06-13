@@ -8,6 +8,7 @@ my_apt_packages:
   - konsole
   - yakuake
   - python3-pip
+  - python-pip
   - npm
 
   # Pipenv dependencies
