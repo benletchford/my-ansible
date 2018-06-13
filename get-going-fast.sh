@@ -5,13 +5,15 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+apt-get update;
+
 REQUIRED_PACKAGES=( ansible git wget )
 for i in "${REQUIRED_PACKAGES[@]}"
 do
   echo -n "Checking if $i installed... "
   if [ $(dpkg-query -W -f='${Status}' $i 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
     echo "installing"
-    apt-get install $i;
+    apt-get install $i -y;
   else
     echo "ok"
   fi
