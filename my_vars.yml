@@ -10,6 +10,7 @@ my_apt_packages:
   - python3-pip
   - python-pip
   - npm
+  - myspell-en-au
 
   # Pipenv dependencies
   - software-properties-common
